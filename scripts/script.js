@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Toggle mobile navigation
+  // Navbar toggle and mobile navigation
   const navToggle = document.querySelector(".nav-toggle");
   const navMenu = document.querySelector(".nav-menu");
 
@@ -26,25 +26,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Form submission
+  // Form submission handling
   const form = document.getElementById("contact-form");
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    // Here you can add code to handle form submission, like sending data to a server or displaying a confirmation message
-    // Example:
-    // const formData = new FormData(form);
-    // fetch('/submit', {
-    //   method: 'POST',
-    //   body: formData,
-    // })
-    // .then(response => response.json())
-    // .then(data => {
-    //   console.log('Success:', data);
-    // })
-    // .catch((error) => {
-    //   console.error('Error:', error);
-    // });
+    // Example code for handling form submission
+    const formData = new FormData(form);
+    fetch("/submit", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        // Add code to handle success (e.g., show a success message)
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        // Add code to handle errors (e.g., show an error message)
+      });
   });
 });
